@@ -1,8 +1,8 @@
 class WelcomeController < ApplicationController
 
-  require 'rest_client'
-  require 'json'
-  require 'open-uri'
+  # require 'rest_client'
+  # require 'json'
+  # require 'open-uri'
 
 def index
 
