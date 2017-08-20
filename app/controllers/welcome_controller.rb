@@ -4,8 +4,6 @@ class WelcomeController < ApplicationController
   # require 'json'
   # require 'open-uri'
 
-def index
-
   # USERNAME = "santiago@nowhereprod.com" # needed to access the APi
   #   PASSWORD = "Habitat28" # needed to access the APi
   #   API_BASE_URL = "https://corporate.pixfizz.com/v1/admin/users" # base url of the API
