@@ -1,8 +1,8 @@
 class WelcomeController < ApplicationController
 
-  # require 'rest_client'
-  # require 'json'
-  # require 'open-uri'
+  require 'rest_client'
+  require 'json'
+  require 'open-uri'
 
   # USERNAME = "santiago@nowhereprod.com" # needed to access the APi
   #   PASSWORD = "Habitat28" # needed to access the APi
