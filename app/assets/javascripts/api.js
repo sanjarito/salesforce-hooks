@@ -14,17 +14,3 @@ function submitForm(){
          }
        });
 }
-
-
-
-var auth = btoa('santiago@nowhereprod.com:Detech28');
-$.ajax({
-    type: 'GET',
-    url: 'https://corporate.pixfizz.com/v1/admin/users.json',
-    headers: {
-        "Authorization": "Basic " + auth
-    },
-    success : function(data) {
-    },
-
-});

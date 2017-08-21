@@ -4,12 +4,14 @@ class WelcomeController < ApplicationController
   require 'json'
   require 'open-uri'
 
-    # def index
+    def index
       USERNAME = "santiago@nowhereprod.com" # needed to access the APi
         PASSWORD = "Habitat28" # needed to access the APi
         API_BASE_URL = "https://corporate.pixfizz.com/v1/admin/users" # base url of the API
 
-    uri = "#{API_BASE_URL}#.json"
+        uri = "#{API_BASE_URL}.json?pages=2" # specifying json format in the URl
+        rest_resource = RestClient::Resource.new(uri, USERNAME, PASSWORD)
+        users = rest_resource.get
 
         # user_api = RestClient::Resource.new('https://instantsignup.pixfizz.com', :user => USERNAME , :password => PASSWORD)
 
@@ -17,6 +19,6 @@ class WelcomeController < ApplicationController
         # rest_resource = RestClient::Resource.new(uri, USERNAME, PASSWORD)
         # users = rest_resource.get
 
-    # end
+    end
 
 end
