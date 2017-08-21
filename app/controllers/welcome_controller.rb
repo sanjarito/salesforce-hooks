@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
 
         # user_api = RestClient::Resource.new('https://instantsignup.pixfizz.com', :user => USERNAME , :password => PASSWORD)
 
-        RestClient::Request.execute method: :get, url: uri, user: USERNAME, password: PASSWORD
+        # RestClient::Request.execute method: :get, url: uri, user: USERNAME, password: PASSWORD
         # rest_resource = RestClient::Resource.new(uri, USERNAME, PASSWORD)
         # users = rest_resource.get
 
