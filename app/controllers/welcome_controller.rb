@@ -15,7 +15,7 @@ class WelcomeController < ApplicationController
   request["postman-token"] = '082eec75-3838-06ca-49f5-cf417eb67532'
 
   response = http.request(request)
-  puts response.body
+  puts response.read_body
 
   # whereIWantItStored = response.code = 200 ? response.body : nil
   # USERNAME = "santiago@nowhereprod.com" # needed to access the APi
