@@ -16,6 +16,8 @@ class WelcomeController < ApplicationController
 
   response = http.request(request)
   puts response.read_body
+
+  puts "hello"
   # USERNAME = "santiago@nowhereprod.com" # needed to access the APi
   #   PASSWORD = "Habitat28" # needed to access the APi
   #   API_BASE_URL = "https://corporate.pixfizz.com/v1/admin/users" # base url of the API
