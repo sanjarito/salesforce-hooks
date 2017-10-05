@@ -56,6 +56,9 @@ def start
                               varuser = response.read_body
                               $pixfizzuser = JSON.parse(varuser)
                               $pixsalesstage = $pixfizzuser["custom"]["sales_stage"]
+                              $pixsindustry = $pixfizzuser["custom"]["industry"]
+                              $pixphone = $pixfizzuser["custom"]["phone"]
+                              $pixcountry = $pixfizzuser["custom"]["country"]
                               $pixusercompany = $pixfizzuser["custom"]["company"]
 
 
@@ -136,7 +139,7 @@ def start
                       request["content-type"] = 'application/json'
                       request["cache-control"] = 'no-cache'
                       request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
-                      request.body = "{\n\"Company\" : \"#{$pixusercompany}\" ,\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\", \n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\",\n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"status\" : \"Trial Storefront\", \n\"LastName\" : \"#{$pixfizzusers[$i]["last_name"]}\",\n\"FirstName\" : \"#{$pixfizzusers[$i]["first_name"]}\"\n}"
+                      request.body = "{\n\"Company\" : \"#{$pixusercompany}\" ,\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\", \n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\", \n\"country\":\"#{$pixcountry}\", \n\"phone\":\"#{$pixphone}\", \n\"country\":\"#{$pixsindustry}\",  \n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"status\" : \"Trial Storefront\", \n\"LastName\" : \"#{$pixfizzusers[$i]["last_name"]}\",\n\"FirstName\" : \"#{$pixfizzusers[$i]["first_name"]}\"\n}"
 
                       response = http.request(request)
 
