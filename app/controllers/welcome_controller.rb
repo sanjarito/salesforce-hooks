@@ -101,7 +101,7 @@ def start
                     request["cache-control"] = 'no-cache'
 
 
-                    request.body = "{\n\"Company\" : \"Test Company\",\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\",\n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\",\n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"LastName\" : \"Unknown\",\n\"FirstName\" : \"Unknown\" \n}"
+                    request.body = "{\n\"Company\" : \"TBD\",\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\",\n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\",\n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"LastName\" : \"TBD\",\n\"FirstName\" : \"TBD\" \n}"
                     response.body
                     response = http.request(request)
                     duplicationerror = response.read_body
@@ -136,7 +136,7 @@ def start
                       request["content-type"] = 'application/json'
                       request["cache-control"] = 'no-cache'
                       request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
-                      request.body = "{\n\"Company\" : \"#{$pixusercompany}\" ,\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\", \n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\",\n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"LastName\" : \"#{$pixfizzusers[$i]["last_name"]}\",\n\"FirstName\" : \"#{$pixfizzusers[$i]["first_name"]}\"\n}"
+                      request.body = "{\n\"Company\" : \"#{$pixusercompany}\" ,\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\", \n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\",\n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"status\" : \"Trial Storefront\", \n\"LastName\" : \"#{$pixfizzusers[$i]["last_name"]}\",\n\"FirstName\" : \"#{$pixfizzusers[$i]["first_name"]}\"\n}"
 
                       response = http.request(request)
 
