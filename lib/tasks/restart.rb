@@ -1,4 +1,4 @@
-require 'heroku/api'
+require 'platform-api/api'
 
 namespace :heroku do
   task :restart do
