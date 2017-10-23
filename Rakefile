@@ -3,4 +3,7 @@
 
 require_relative 'config/application'
 
+
+require_relative 'lib/tasks/restart'
+
 Rails.application.load_tasks
