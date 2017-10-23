@@ -9,6 +9,7 @@ task :update_feed => :environment do
 
   def start
 
+puts "inside function"
       $i = 2
       uri = URI("https://corporate.pixfizz.com/users.json")
       http = Net::HTTP.new(uri.host, uri.port)
