@@ -1,9 +1,14 @@
-# require 'uri'
-# require 'net/http'
-# require 'rubygems'
-# require 'json'
-# require 'time'
-#
+require 'uri'
+require 'net/http'
+require 'rubygems'
+require 'json'
+require 'time'
+
+desc 'Update sales force database every so often'
+task :sf_update do
+  start
+end
+
 # desc "This task is called by the Heroku scheduler add-on"
 # task :update_feed => :environment do
 #

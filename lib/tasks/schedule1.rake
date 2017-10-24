@@ -1,9 +1,10 @@
-task :do_work => :environment do
-  require 'open-uri'
-  file = open('https://obscure-beach-12891.herokuapp.com/')
-  contents = file.read
-  puts contents
+require 'uri'
+require 'net/http'
+require 'rubygems'
+require 'json'
+require 'time'
 
-
-
+desc 'Update sales force database every so often'
+task :sf_update do
+  start
 end
