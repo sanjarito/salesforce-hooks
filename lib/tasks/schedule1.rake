@@ -1,6 +1,8 @@
 task :do_work => :environment do
-'welcome#start'
-
+  require 'open-uri'
+  file = open('http://hiscore.runescape.com/index_lite.ws?player=zezima')
+  
+  puts contents
 
 
 
