@@ -74,6 +74,7 @@ end
 
                     # ///////  Post API Call /////////////
 
+                      unless $pixsalesstage = "Email_Registration"
                       url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead")
 
                       http = Net::HTTP.new(url.host, url.port)
@@ -104,9 +105,10 @@ end
                         sfuser_id = id_exists[70..-1]
 
 
-
+                        end
 
                     # ///////  Patch API Call /////////////
+                    unless $pixsalesstage = "Storefront_Registration"
                         if (sfuser_id != nil && sfuser_id != 0)
                         url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/#{sfuser_id}")
 
@@ -127,6 +129,7 @@ end
 
 
                       end
+                    end
 
                       end
 
