@@ -9,7 +9,7 @@ def start
 console.log("inside start function")
 
     $i = 1
-    uri = URI("https://corporate.pixfizz.com/users.json?page=2")
+    uri = URI("https://corporate.pixfizz.com/users.json")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
