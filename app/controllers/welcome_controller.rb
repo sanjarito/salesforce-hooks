@@ -40,6 +40,8 @@ def start
             # puts @pixfizzuser_marketingstage
 
             puts $pixfizzusers
+            puts $pixfizzusers.length
+
             while $i <= $pixfizzusers.length
 
               # ///////// GET API CALL TO GET PX:USER:CUSTOMFIELD:SALES_MARKETING //////////
