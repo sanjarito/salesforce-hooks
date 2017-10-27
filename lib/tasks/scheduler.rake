@@ -11,6 +11,7 @@ end
 
   def start
 
+console.log("inside start function")
 
       $i = 1
       uri = URI("https://corporate.pixfizz.com/users.json?page=2")
@@ -23,6 +24,8 @@ end
             unless response.nil?
               varusers = response.read_body
               $pixfizzusers = JSON.parse(varusers)
+              console.log($pixfizzusers)
+              console.log($pixfizzusers.length)
               while $i <= $pixfizzusers.length
 
                 # ///////// GET API CALL TO GET PX:USER:CUSTOMFIELD:SALES_MARKETING //////////
