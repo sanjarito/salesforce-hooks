@@ -44,6 +44,7 @@ def start
 
             while $i <= $pixfizzusers.length
 
+              puts "inside the whileeeeeeee loooooooop"
               # ///////// GET API CALL TO GET PX:USER:CUSTOMFIELD:SALES_MARKETING //////////
 
 
