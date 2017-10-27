@@ -20,7 +20,7 @@ def start
 #   end
 
     $i = 1
-    uri = URI("https://corporate.pixfizz.com/users.json??page=2")
+    uri = URI("https://corporate.pixfizz.com/users.json?page=2")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -35,11 +35,11 @@ def start
 
 
             # @pixfizzuser_marketingstage = pixfizzusers[$i]["custom"];
-            #
+
 
             # puts @pixfizzuser_marketingstage
 
-
+            console.log($pixfizzusers)
             while $i <= $pixfizzusers.length
 
               # ///////// GET API CALL TO GET PX:USER:CUSTOMFIELD:SALES_MARKETING //////////
@@ -151,20 +151,7 @@ def start
                   # /////// END PATCH /////////////
 
 
-
-
-
-
                 end
-
-
-
-
-
-
-
-
-
 
 
                     # puts duplicationerror
@@ -175,11 +162,6 @@ def start
 
               $i +=1
             end
-
-
-
-
-
 
             # pixuserslogindate = pixfizzusers['login_date']
             # @@logdatetruncated = pixuserslogindate[0..10]
