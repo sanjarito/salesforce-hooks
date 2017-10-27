@@ -39,7 +39,7 @@ def start
 
             # puts @pixfizzuser_marketingstage
 
-            console.log($pixfizzusers)
+            puts $pixfizzusers
             while $i <= $pixfizzusers.length
 
               # ///////// GET API CALL TO GET PX:USER:CUSTOMFIELD:SALES_MARKETING //////////
