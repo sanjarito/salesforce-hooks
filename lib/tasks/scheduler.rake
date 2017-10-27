@@ -12,7 +12,7 @@ end
   def start
 
 
-      $i = 2
+      $i = 1
       uri = URI("https://corporate.pixfizz.com/users.json?page=2")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
