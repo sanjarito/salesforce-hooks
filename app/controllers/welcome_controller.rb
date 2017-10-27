@@ -19,7 +19,7 @@ def start
 #   puts "notequal"
 #   end
 
-    $i = 1
+    $i = 0
     uri = URI("https://corporate.pixfizz.com/users.json?page=2")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
@@ -39,12 +39,11 @@ def start
 
             # puts @pixfizzuser_marketingstage
 
-            puts $pixfizzusers
-            puts $pixfizzusers.length
+
 
             while $i <= $pixfizzusers.length
 
-              puts "inside the whileeeeeeee loooooooop"
+            puts $pixfizzusers[$i]
               # ///////// GET API CALL TO GET PX:USER:CUSTOMFIELD:SALES_MARKETING //////////
 
 
