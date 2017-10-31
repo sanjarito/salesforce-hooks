@@ -165,9 +165,10 @@ end
   request["postman-token"] = 'e71ae918-a171-ff8f-900f-67b4c0ceba18'
 
   response = http.request(request)
-  puts response.read_body
+  # puts response.read_body
   tickets = response.read_body
   $fdtickets = JSON.parse(tickets)
-  puts $fdtickets
+  $fdtickettrial = $fdtickets["type"]
+  puts $fdtickettrial
 
     end
