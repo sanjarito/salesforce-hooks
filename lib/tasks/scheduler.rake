@@ -234,10 +234,13 @@ request = Net::HTTP::Get.new(url)
 request["authorization"] = bearertoken
 request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
-sfuseremail = http.request(request)
+response = http.request(request)
+sfuseremail = response.read_body
+$salesforceleademail = JSON.parse(sfuseremail)
 # puts sfuseremail.read_body
-$salesforceuseremail = sfuseremail["Email"]
-puts $salesforceuseremail
+puts $salesforceleademail 
+# $salesforceuseremail = sfuseremail["Email"]
+# puts $salesforceuseremail
 
 # ////  Get email for every single user id //
 
