@@ -216,13 +216,13 @@ response = http.request(request)
 sfleadslist = response.read_body
 $salesforceleads = JSON.parse(sfleadslist)
 $pixsalesforceuser = $salesforceleads["recentItems"]
-$n = 1
+$n = 0
 puts $pixsalesforceuser.length
 while $n <= 5
 
 $pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
       # ////////   End Get API call SalesForce Leads /////
-
+$n += 1
 # ////  Get email for every single user id //
       url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/"+ $pixsalesforceuserid)
 
@@ -239,7 +239,7 @@ sfuseremail = response.read_body
 $salesforceleadlist = JSON.parse(sfuseremail)
 $salesforceleademail = $salesforceleadlist["Email"]
 # puts sfuseremail.read_body
-$n += 1
+
 puts $salesforceleademail
 # $salesforceuseremail = sfuseremail["Email"]
 # puts $salesforceuseremail
