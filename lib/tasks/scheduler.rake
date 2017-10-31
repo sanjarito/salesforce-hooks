@@ -170,9 +170,9 @@ end
   $fdtickets = JSON.parse(tickets)
   $i = 0
   puts $fdtickets.length
+
   while $i <= $fdtickets.length
-  # $fdtickettrial = $fdtickets[$i]["type"]
-  puts "hola"
+  puts $fdtickets[$i]["type"]
   $i +=1
   end
 
