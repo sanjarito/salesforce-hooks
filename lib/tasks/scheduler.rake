@@ -172,6 +172,7 @@ end
   puts $fdtickets.length
   while $i <= $fdtickets.length
   # $fdtickettrial = $fdtickets[$i]["type"]
+  puts "hola"
   $i +=1
   end
 
