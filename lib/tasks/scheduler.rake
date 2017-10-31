@@ -234,8 +234,8 @@ request = Net::HTTP::Get.new(url)
 request["authorization"] = bearertoken
 request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
-response = http.request(request)
-puts response.read_body
+sfuseremail = http.request(request)
+puts sfuseremail.read_body
 
 # ////  Get email for every single user id //
 
