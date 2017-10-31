@@ -218,7 +218,7 @@ $salesforceleads = JSON.parse(sfleadslist)
 $pixsalesforceuser = $salesforceleads["recentItems"]
 $n = 0
 puts $pixsalesforceuser.length
-while $n <= $pixsalesforceuser
+while $n <= $pixsalesforceuser.length
 
 puts "adentro"
 
