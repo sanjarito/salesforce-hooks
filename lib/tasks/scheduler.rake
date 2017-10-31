@@ -194,7 +194,7 @@ end
       obj = JSON.parse(var1)
       token = obj['access_token']
       puts bearertoken = "Bearer " + token
-
+    end
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
 
   else
