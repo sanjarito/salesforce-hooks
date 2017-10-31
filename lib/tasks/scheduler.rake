@@ -168,7 +168,7 @@ end
   # puts response.read_body
   tickets = response.read_body
   $fdtickets = JSON.parse(tickets)
-  $fdtickettrial = $fdtickets["type"][0]
+  $fdtickettrial = $fdtickets[0]["type"]
   puts $fdtickettrial
 
     end
