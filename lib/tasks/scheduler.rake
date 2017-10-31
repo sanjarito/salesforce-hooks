@@ -236,9 +236,10 @@ request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
 response = http.request(request)
 sfuseremail = response.read_body
-$salesforceleademail = JSON.parse(sfuseremail)
+$salesforceleadlist = JSON.parse(sfuseremail)
+$salesforceleademail = $salesforceleadlist["Email"]
 # puts sfuseremail.read_body
-puts $salesforceleademail 
+puts $salesforceleademail
 # $salesforceuseremail = sfuseremail["Email"]
 # puts $salesforceuseremail
 
