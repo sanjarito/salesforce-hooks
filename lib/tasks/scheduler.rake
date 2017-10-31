@@ -218,15 +218,26 @@ $salesforceleads = JSON.parse(sfleadslist)
 $pixsalesforceuser = $salesforceleads["recentItems"]
 $n = 0
 puts $pixsalesforceuser.length
-while $n <= $pixsalesforceuser.length
-
-
-
+while $n <= 5
 
 $pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
-puts $pixsalesforceuserid
-
       # ////////   End Get API call SalesForce Leads /////
+
+# ////  Get email for every single user id //
+      url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/"+ $pixsalesforceuserid)
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["authorization"] = bearertoken
+request["content-type"] = 'application/json'
+request["cache-control"] = 'no-cache'
+response = http.request(request)
+puts response.read_body
+
+# ////  Get email for every single user id //
 
 $n += 1
       # puts $fdtickets[$i]["custom_fields"]["username"]
