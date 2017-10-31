@@ -196,7 +196,7 @@ end
       token = obj['access_token']
       puts bearertoken = "Bearer " + token
 
-end
+
       # ///////////// Get SalesForce Leads ///////////////
 
 url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/")
