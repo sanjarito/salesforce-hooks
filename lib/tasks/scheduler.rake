@@ -169,7 +169,7 @@ end
   tickets = response.read_body
   $fdtickets = JSON.parse(tickets)
   $i = 0
-  puts $fdtickets.length
+
 
   while $i <= $fdtickets.length
 
@@ -217,7 +217,7 @@ sfleadslist = response.read_body
 $salesforceleads = JSON.parse(sfleadslist)
 $pixsalesforceuser = $salesforceleads["recentItems"]
 $n = 0
-puts pixsalesforceuser.length
+puts $pixsalesforceuser.length
 while $n <= $pixsalesforceuser
 
 puts "adentro"
