@@ -172,7 +172,13 @@ end
   puts $fdtickets.length
 
   while $i <= $fdtickets.length
-  puts $fdtickets[$i]["type"]
+  # puts $fdtickets[$i]["type"]
+  if $fdtickets[$i]["type"] == "Instant Signup"
+    puts boom
+
+  else
+
+  end
   $i +=1
   end
 
