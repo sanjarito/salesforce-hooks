@@ -215,7 +215,9 @@ request["cache-control"] = 'no-cache'
 response = http.request(request)
 sfleadslist = response.read_body
 $salesforceleads = JSON.parse(sfleadslist)
-puts $salesforceleads
+
+$pixsalesforceuser = $salesforceleads["recentItems"]
+puts $pixsalesforceuser
 
       # ////////   End Get API call SalesForce Leads /////
 
