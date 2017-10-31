@@ -9,6 +9,12 @@ task :sf_update do
   start
 end
 
+desc 'Update freshdesk tickets in status provisional storefront and send email'
+task :fd_update do
+  freshdeskupdate
+end
+
+
   def start
 
 
@@ -142,4 +148,26 @@ end
               end
 
             end
+    end
+
+    def freshdeskupdate
+
+
+  url = URI("https://pixfizz.freshdesk.com/api/v2/tickets")
+
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+  request = Net::HTTP::Get.new(url)
+  request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
+  request["cache-control"] = 'no-cache'
+  request["postman-token"] = 'e71ae918-a171-ff8f-900f-67b4c0ceba18'
+
+  response = http.request(request)
+  puts response.read_body
+  tickets = response.read_body
+  $fdtickets = JSON.parse(tickets)
+  puts $fdtickets
+
     end
