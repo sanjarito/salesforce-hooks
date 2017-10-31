@@ -173,6 +173,7 @@ end
 
   while $i <= $fdtickets.length
   puts $fdtickets[$i]["type"]
+
   if $fdtickets[$i]["type"] == "Instant Signup"
 
     # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
@@ -194,6 +195,8 @@ end
       obj = JSON.parse(var1)
       token = obj['access_token']
       puts bearertoken = "Bearer " + token
+      puts $fdtickets[$i]["custom_fields"]["username"]
+
 
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
     end
