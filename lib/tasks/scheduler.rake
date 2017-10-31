@@ -215,9 +215,14 @@ request["cache-control"] = 'no-cache'
 response = http.request(request)
 sfleadslist = response.read_body
 $salesforceleads = JSON.parse(sfleadslist)
-
 $pixsalesforceuser = $salesforceleads["recentItems"]
-$pixsalesforceuserid = $salesforceleads["recentItems"]["Id"]
+$n = 0
+puts pixsalesforceuser.length
+while $n <= $pixsalesforceuser
+
+
+
+$pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
 puts $pixsalesforceuserid
 
       # ////////   End Get API call SalesForce Leads /////
@@ -227,6 +232,7 @@ puts $pixsalesforceuserid
 
 
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
+      end
     end
 
 
