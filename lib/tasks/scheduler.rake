@@ -234,8 +234,9 @@ request = Net::HTTP::Get.new(url)
 request["authorization"] = bearertoken
 request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
-response = http.request(request)
-puts response.read_body
+sfuseremail = http.request(request)
+$salesforceuseremail = JSON.parse(sfuseremail)
+puts $salesforceuseremail
 
 # ////  Get email for every single user id //
 
