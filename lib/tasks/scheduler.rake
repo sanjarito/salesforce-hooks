@@ -216,7 +216,7 @@ response = http.request(request)
 sfleadslist = response.read_body
 $salesforceleads = JSON.parse(sfleadslist)
 $pixsalesforceuser = $salesforceleads["recentItems"]
-$n = 0
+$n = 5
 puts $pixsalesforceuser.length
 while $n <= 5
 
