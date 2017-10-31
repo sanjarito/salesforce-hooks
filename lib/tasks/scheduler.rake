@@ -218,9 +218,9 @@ $salesforceleads = JSON.parse(sfleadslist)
 $pixsalesforceuser = $salesforceleads["recentItems"]
 $n = 0
 puts $pixsalesforceuser.length
-while $n <= $pixsalesforceuser.length
-
-puts "adentro"
+# while $n <= $pixsalesforceuser.length
+#
+# puts "adentro"
 
 # $pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
 # puts $pixsalesforceuserid
@@ -232,7 +232,7 @@ puts "adentro"
 
 
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
-      end
+      # end
     end
 
 
