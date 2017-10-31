@@ -236,7 +236,7 @@ request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
 sfuseremail = http.request(request)
 # puts sfuseremail.read_body
-$salesforceuseremail = JSON.parse(sfuseremail)
+$salesforceuseremail = sfuseremail["Email"]
 puts $salesforceuseremail
 
 # ////  Get email for every single user id //
