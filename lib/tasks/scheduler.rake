@@ -239,13 +239,14 @@ sfuseremail = response.read_body
 $salesforceleadlist = JSON.parse(sfuseremail)
 $salesforceleademail = $salesforceleadlist["Email"]
 # puts sfuseremail.read_body
+$n += 1
 puts $salesforceleademail
 # $salesforceuseremail = sfuseremail["Email"]
 # puts $salesforceuseremail
 
 # ////  Get email for every single user id //
 
-$n += 1
+
       # puts $fdtickets[$i]["custom_fields"]["username"]
 
 
