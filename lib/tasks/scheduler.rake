@@ -231,7 +231,7 @@ http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Get.new(url)
-request["authorization"] =
+request["authorization"] = bearertoken
 request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
 response = http.request(request)
