@@ -220,16 +220,16 @@ $n = 0
 puts $pixsalesforceuser.length
 while $n <= $pixsalesforceuser.length
 
-puts "adentro"
 
-$n += 1
-# $pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
-# puts $pixsalesforceuserid
+
+
+$pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
+puts $pixsalesforceuserid
 
       # ////////   End Get API call SalesForce Leads /////
 
-
-      puts $fdtickets[$i]["custom_fields"]["username"]
+$n += 1
+      # puts $fdtickets[$i]["custom_fields"]["username"]
 
 
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
