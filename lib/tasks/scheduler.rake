@@ -235,7 +235,9 @@ request["authorization"] = bearertoken
 request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
 sfuseremail = http.request(request)
-puts sfuseremail.read_body
+# puts sfuseremail.read_body
+$salesforceuseremail = JSON.parse(sfuseremail)
+puts $salesforceuseremail
 
 # ////  Get email for every single user id //
 
