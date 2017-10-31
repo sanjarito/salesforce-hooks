@@ -172,7 +172,7 @@ end
   puts $fdtickets.length
 
   while $i <= $fdtickets.length
-  puts $fdtickets[$i]["type"]
+
 
   if $fdtickets[$i]["type"] == "Instant Signup"
 
@@ -195,6 +195,30 @@ end
       obj = JSON.parse(var1)
       token = obj['access_token']
       puts bearertoken = "Bearer " + token
+
+
+      # ///////////// Get SalesForce Leads ///////////////
+
+url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["authorization"] = bearertoken
+request["content-type"] = 'application/json'
+request["cache-control"] = 'no-cache'
+
+
+
+response = http.request(request)
+puts response.read_body
+puts "getcallsalesforce"
+
+      # ////////   End Get API call SalesForce Leads /////
+
+
       puts $fdtickets[$i]["custom_fields"]["username"]
 
 
