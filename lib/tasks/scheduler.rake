@@ -175,7 +175,7 @@ end
   puts $fdtickets[$i]["type"]
   if $fdtickets[$i]["type"] == "Instant Signup"
 
-    
+
 
   else
 
