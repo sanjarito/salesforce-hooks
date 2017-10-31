@@ -168,7 +168,10 @@ end
   # puts response.read_body
   tickets = response.read_body
   $fdtickets = JSON.parse(tickets)
-  $fdtickettrial = $fdtickets[0]["type"]
-  puts $fdtickettrial
+  while $i <= $fdtickets.length
+  $fdtickettrial = $fdtickets[$i]["type"]
+  end
+
+
 
     end
