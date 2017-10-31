@@ -231,12 +231,11 @@ http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Get.new(url)
-request["authorization"] = bearertoken
+request["authorization"] =
 request["content-type"] = 'application/json'
 request["cache-control"] = 'no-cache'
 response = http.request(request)
-salesforceuser = JSON.parse(response)
-puts salesforceuser
+puts response.read_body
 
 # ////  Get email for every single user id //
 
