@@ -220,10 +220,10 @@ $n = 0
 puts pixsalesforceuser.length
 while $n <= $pixsalesforceuser
 
+puts "adentro"
 
-
-$pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
-puts $pixsalesforceuserid
+# $pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
+# puts $pixsalesforceuserid
 
       # ////////   End Get API call SalesForce Leads /////
 
