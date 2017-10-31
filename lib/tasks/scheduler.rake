@@ -217,7 +217,8 @@ sfleadslist = response.read_body
 $salesforceleads = JSON.parse(sfleadslist)
 
 $pixsalesforceuser = $salesforceleads["recentItems"]
-puts $pixsalesforceuser
+$pixsalesforceuserid = $salesforceleads["recentItems"]["Id"]
+puts $pixsalesforceuserid
 
       # ////////   End Get API call SalesForce Leads /////
 
