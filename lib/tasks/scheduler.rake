@@ -168,7 +168,8 @@ end
   # puts response.read_body
   tickets = response.read_body
   $fdtickets = JSON.parse(tickets)
-  $i = 0
+  puts $fdtickets
+
 
 
 
