@@ -222,7 +222,7 @@ while $n <= 5
 
 $pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
       # ////////   End Get API call SalesForce Leads /////
-$n += 1
+
 # ////  Get email for every single user id //
       url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/"+ $pixsalesforceuserid)
 
@@ -240,7 +240,7 @@ $salesforceleadlist = JSON.parse(sfuseremail)
 $salesforceleademail = $salesforceleadlist["Email"]
 # puts sfuseremail.read_body
 
-puts $salesforceleademail[1]
+puts $salesforceleademail
 # $salesforceuseremail = sfuseremail["Email"]
 # puts $salesforceuseremail
 
@@ -249,7 +249,7 @@ puts $salesforceleademail[1]
 
       # puts $fdtickets[$i]["custom_fields"]["username"]
 
-
+$n += 1
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
       end
     end
