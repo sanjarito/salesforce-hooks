@@ -253,7 +253,7 @@ $n += 1
   while $i <= $fdtickets.length
 
   if $fdtickets[$i]["type"] == "Instant Signup"
-    puts "type instant"
+    puts $fdtickets[$i]["Email"]
   else
 
   end
