@@ -152,29 +152,6 @@ end
 
     def freshdeskupdate
 
-
-  url = URI("https://pixfizz.freshdesk.com/api/v2/tickets")
-
-  http = Net::HTTP.new(url.host, url.port)
-  http.use_ssl = true
-  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-  request = Net::HTTP::Get.new(url)
-  request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
-  request["cache-control"] = 'no-cache'
-  request["postman-token"] = 'e71ae918-a171-ff8f-900f-67b4c0ceba18'
-
-  response = http.request(request)
-  # puts response.read_body
-  tickets = response.read_body
-  $fdtickets = JSON.parse(tickets)
-  puts $fdtickets
-
-
-
-
-
-
     # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
 
     url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=M3l1ss%4008znx54cGVrKrzkVnyyhkLlGlz")
@@ -255,14 +232,32 @@ $n += 1
       end
     end
 
-  # while $i <= $fdtickets.length
-  # if $fdtickets[$i]["type"] == "Instant Signup"
-  #
-  # else
-  #
-  # end
-  # $i +=1
-  # end
+    url = URI("https://pixfizz.freshdesk.com/api/v2/tickets")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(url)
+    request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
+    request["cache-control"] = 'no-cache'
+    request["postman-token"] = 'e71ae918-a171-ff8f-900f-67b4c0ceba18'
+
+    response = http.request(request)
+    # puts response.read_body
+    tickets = response.read_body
+    $fdtickets = JSON.parse(tickets)
+    puts $fdtickets
+
+  $i = 0
+  while $i <= $fdtickets.length
+  if $fdtickets[$i]["type"] == "Instant Signup"
+    puts "type instant"
+  else
+
+  end
+  $i +=1
+  end
 
 
 
