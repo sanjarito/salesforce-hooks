@@ -171,10 +171,8 @@ end
   $i = 0
 
 
-  while $i <= $fdtickets.length
 
 
-  if $fdtickets[$i]["type"] == "Instant Signup"
 
     # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
 
@@ -196,7 +194,7 @@ end
       token = obj['access_token']
       puts bearertoken = "Bearer " + token
 
-      
+
 
 
       # ///////////// Get SalesForce Leads ///////////////
@@ -256,6 +254,8 @@ puts $salesforceleademail
       end
     end
 
+  while $i <= $fdtickets.length
+  if $fdtickets[$i]["type"] == "Instant Signup"
 
   else
 
