@@ -240,7 +240,7 @@ $salesforceleadlist = JSON.parse(sfuseremail)
 $salesforceleademail = $salesforceleadlist["Email"]
 # puts sfuseremail.read_body
 
-puts $salesforceleademail
+puts $salesforceleademail[1]
 # $salesforceuseremail = sfuseremail["Email"]
 # puts $salesforceuseremail
 
