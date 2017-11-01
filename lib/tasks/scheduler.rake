@@ -247,16 +247,16 @@ $n += 1
     # puts response.read_body
     tickets = response.read_body
     $fdtickets = JSON.parse(tickets)
-    puts $fdtickets.length
+
 
   $i = 0
   while $i <= $fdtickets.length
 
-  # if $fdtickets[$i]["type"] == "Instant Signup"
-  #   puts "type instant"
-  # else
-  #
-  # end
+  if $fdtickets[$i]["type"] == "Instant Signup"?
+    puts "type instant"
+  else
+
+  end
   $i +=1
   end
 
