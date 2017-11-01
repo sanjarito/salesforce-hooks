@@ -254,13 +254,13 @@ puts $salesforceleademail
       end
     end
 
-  while $i <= $fdtickets.length
-  if $fdtickets[$i]["type"] == "Instant Signup"
-
-  else
-
-  end
-  $i +=1
+  # while $i <= $fdtickets.length
+  # if $fdtickets[$i]["type"] == "Instant Signup"
+  #
+  # else
+  #
+  # end
+  # $i +=1
   end
 
 
