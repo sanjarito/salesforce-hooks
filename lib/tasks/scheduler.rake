@@ -196,6 +196,12 @@ end
       token = obj['access_token']
       puts bearertoken = "Bearer " + token
 
+    else
+
+    end
+    $i +=1
+    end  
+
 
       # ///////////// Get SalesForce Leads ///////////////
 
@@ -255,11 +261,7 @@ puts $salesforceleademail
     end
 
 
-  else
 
-  end
-  $i +=1
-  end
 
 
 
