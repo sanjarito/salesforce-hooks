@@ -225,7 +225,7 @@ puts $salesforceleademail
 # ////  Get email for every single user id //
 
 
-      # puts $fdtickets[$i]["custom_fields"]["username"]
+
 
 $n += 1
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
@@ -253,7 +253,7 @@ $n += 1
   while $i <= $fdtickets.length
 
   if $fdtickets[$i]["type"] == "Instant Signup"
-    puts $fdtickets[$i]["Email"]
+    puts $fdtickets[$i]["custom_fields"]["username"]
   else
 
   end
