@@ -253,7 +253,7 @@ $n += 1
   while $i <= $fdtickets.length
     puts $fdtickets.length
 
-  unless $fdtickets[$i]["type"] == "Instant Signup"
+    if $fdtickets[$i]["type"] == "Instant Signup"
     puts $i
     puts $fdtickets[$i]["custom_fields"]["username"]
   else
