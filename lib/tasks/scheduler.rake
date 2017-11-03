@@ -254,11 +254,9 @@ $n += 1
     puts $fdtickets.length
 
     if $fdtickets[$i]["type"] == "Instant Signup"
-    puts $i
     puts $fdtickets[$i]["custom_fields"]["username"]
   else
-    puts $i
-    puts "no instant type signup"
+  return
 
   end
   $i +=1
