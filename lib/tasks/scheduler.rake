@@ -129,7 +129,7 @@ end
                         request["content-type"] = 'application/json'
                         request["cache-control"] = 'no-cache'
                         request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
-                        request.body = "{\n\"Company\" : \"#{$pixusercompany}\" ,\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\", \n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\", \n\"country\":\"#{$pixcountry}\", \n\"phone\":\"#{$pixphone}\", \n\"industry\":\"#{$pixsindustry}\",  \n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"status\" : \"Trial Storefront\", \n\"LastName\" : \"#{$pixfizzusers[$i]["last_name"]}\",\n\"FirstName\" : \"#{$pixfizzusers[$i]["first_name"]}\"\n}"
+                        request.body = "{\n\"Company\" : \"#{$pixusercompany}\" ,\n\"Email\":\"#{$pixfizzusers[$i]["email"]}\", \n\"user_id__c\":\"#{$pixfizzusers[$i]["id"]}\", \n\"country\":\"#{$pixcountry}\", \n\"phone\":\"#{$pixphone}\", \n\"industry\":\"#{$pixsindustry}\", \n\"sales_stage__c\":\"#{$pixsalesstage}\" ,\n\"status\" : \"Trial Storefront\", \n\"LastName\" : \"#{$pixfizzusers[$i]["last_name"]}\",\n\"FirstName\" : \"#{$pixfizzusers[$i]["first_name"]}\"\n}"
 
                         response = http.request(request)
 
@@ -248,8 +248,30 @@ puts $salesforceleademail
 
 while $i <= 10
 
-if $fdtickets[$i]["custom_fields"]["username"] == $salesforceleademail
+if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]["username"] == $salesforceleademail && $fdtickets[$i]["status"] == 5
   puts "success"
+
+  # ///////  Patch API Call /////////////
+  # unless $pixsalesstage == "Email_Registration"
+      url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/" + $pixsalesforceuserid)
+
+      puts "patch api call"
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      request = Net::HTTP::Patch.new(url)
+      request["authorization"] = bearertoken
+      request["content-type"] = 'application/json'
+      request["cache-control"] = 'no-cache'
+      request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
+      request.body = "{\n\"status\" : \"14daytrial\"\n}"
+
+      response = http.request(request)
+
+
+  # end
 else
   puts "failure"
 end
