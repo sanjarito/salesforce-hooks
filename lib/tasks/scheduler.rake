@@ -152,6 +152,29 @@ end
 
     def freshdeskupdate
 
+      # //////////// API Call to get all the tickets   ///////////////////////////////////////
+      url = URI("https://pixfizz.freshdesk.com/api/v2/tickets")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      request = Net::HTTP::Get.new(url)
+      request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
+      request["cache-control"] = 'no-cache'
+      request["postman-token"] = 'e71ae918-a171-ff8f-900f-67b4c0ceba18'
+
+      response = http.request(request)
+      # puts response.read_body
+      tickets = response.read_body
+      $fdtickets = JSON.parse(tickets)
+
+
+      # //////////// END API Call to get all the tickets   //////////////////////////////////////
+
+
+
+
     # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
 
     url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=M3l1ss%4008znx54cGVrKrzkVnyyhkLlGlz")
@@ -195,14 +218,16 @@ sfleadslist = response.read_body
 $salesforceleads = JSON.parse(sfleadslist)
 $pixsalesforceuser = $salesforceleads["recentItems"]
 $n = 0
-# puts $pixsalesforceuser.length
-while $n <= 5
 
+# puts $pixsalesforceuser.length
+
+while $n <= 10
 $pixsalesforceuserid = $salesforceleads["recentItems"][$n]["Id"]
       # ////////   End Get API call SalesForce Leads /////
-
+$i = 0
+puts $n
 # ////  Get email for every single user id //
-      url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/"+ $pixsalesforceuserid)
+url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/"+ $pixsalesforceuserid)
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -216,52 +241,62 @@ response = http.request(request)
 sfuseremail = response.read_body
 $salesforceleadlist = JSON.parse(sfuseremail)
 $salesforceleademail = $salesforceleadlist["Email"]
-# puts sfuseremail.read_body
-
 puts $salesforceleademail
-# $salesforceuseremail = sfuseremail["Email"]
-# puts $salesforceuseremail
-
-# ////  Get email for every single user id //
 
 
 
+
+while $i <= 10
+
+if $fdtickets[$i]["custom_fields"]["username"] == $salesforceleademail
+  puts "success"
+else
+  puts "failure"
+end
+  # puts $tickettype
+  # puts $fdtickets[$i]["type"]
+# if $fdtickets[$i]["type"] == nil
+#   puts "nil"
+# else
+#   $fdtickets[$i]["type"]
+# end
+#   return
+# elsif $fdtickets[$i]["custom_fields"]["username"] == nil
+#   return
+# elsif $fdtickets[$i]["type"] == "Instant Signup"
+#   puts $fdtickets[$i]["custom_fields"]["username"]
+
+# end
+$i += 1
+end
 
 $n += 1
+    end #END of while loop $n ///
+# while $i <= $fdtickets.length
+
+# --------------------------------------- CONDITIONALS ----------------------------------------------------------------
+
+# unless $fdtickets[$i]["type"] == "Instant Signup".nil?
+#   # if $fdtickets[$i]["type"] == "Instant Signup"
+#   #  && $salesforceleademail == $fdtickets[$i]["custom_fields"]["username"]
+#
+#
+# else
+# "no match"
+# #
+# end # if conditional end
+
+
+# --------------------------------------- CONDITIONALS ----------------------------------------------------------------
+
+
+# end  # while conditional end
+
+
       # //////////// END token request to SALESFORCE    ///////////////////////////////////////
-      end
-    end
-
-    url = URI("https://pixfizz.freshdesk.com/api/v2/tickets")
-
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-    request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
-    request["cache-control"] = 'no-cache'
-    request["postman-token"] = 'e71ae918-a171-ff8f-900f-67b4c0ceba18'
-
-    response = http.request(request)
-    # puts response.read_body
-    tickets = response.read_body
-    $fdtickets = JSON.parse(tickets)
-
-
-  $i = 0
-  while $i <= $fdtickets.length
-    puts $fdtickets.length
-
-    if $fdtickets[$i]["type"] == "Instant Signup"
-    puts $fdtickets[$i]["custom_fields"]["username"]
-  else
-  
-
-  end
-  $i +=1
-  end
 
 
 
-    end
+  end #END of unless statement ///
+
+end
