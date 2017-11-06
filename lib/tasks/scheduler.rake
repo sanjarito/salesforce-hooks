@@ -56,7 +56,7 @@ end
 
                   # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
 
-                  url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=M3l1ss%4008znx54cGVrKrzkVnyyhkLlGlz")
+                  url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=Aprilla1089ZYrFbpnkflrxciWQIV8dWS5M")
 
                   http = Net::HTTP.new(url.host, url.port)
                   http.use_ssl = true
@@ -177,7 +177,7 @@ end
 
     # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
 
-    url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=M3l1ss%4008znx54cGVrKrzkVnyyhkLlGlz")
+    url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=Aprilla1089ZYrFbpnkflrxciWQIV8dWS5M")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -266,7 +266,8 @@ if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]
       request["content-type"] = 'application/json'
       request["cache-control"] = 'no-cache'
       request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
-      request.body = "{\n\"status\" : \"14daytrial\",\n\"subdomain\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
+      # request.body = "{\n\"sales_stage\" : \"14daytrial\",\n\"subdomain\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
+      request.body = "{\n\"sales_stage\" : \"14daytrial\"\n}"
 
       response = http.request(request)
 
