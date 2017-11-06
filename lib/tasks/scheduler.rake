@@ -266,7 +266,7 @@ if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]
       request["content-type"] = 'application/json'
       request["cache-control"] = 'no-cache'
       request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
-      request.body = "{\n\"status\" : \"14daytrial\"\n}"
+      request.body = "{\n\"status\" : \"14daytrial\",\n\"subdomain\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
 
       response = http.request(request)
 
