@@ -19,7 +19,7 @@ end
 
 
       $i = 0
-      uri = URI("https://corporate.pixfizz.com/users.json?page=2")
+      uri = URI("https://corporate.pixfizz.com/users.json?page=3")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -248,7 +248,34 @@ puts $salesforceleademail
 
 while $i <= 10
 
-if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]["username"] == $salesforceleademail && $fdtickets[$i]["status"] == 5
+if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]["username"] == $salesforceleademail && $fdtickets[$i]["status"] == 9
+  puts "Rejected"
+
+  # ///////  Patch API Call /////////////
+  # unless $pixsalesstage == "Email_Registration"
+      url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/" + $pixsalesforceuserid)
+
+      puts "patch api call"
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      request = Net::HTTP::Patch.new(url)
+      request["authorization"] = bearertoken
+      request["content-type"] = 'application/json'
+      request["cache-control"] = 'no-cache'
+      request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
+      # request.body = "{\n\"sales_stage\" : \"14daytrial\",\n\"subdomain\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
+      # request.body = "{\n\"sales_stage\" : \"14daytrial\"\n}"
+      request.body = "{\n\"status\" : \"unqualified\"\n}"
+
+      response = http.request(request)
+
+
+  # end
+
+elsif $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]["username"] == $salesforceleademail && $fdtickets[$i]["status"] == 5
   puts "success"
 
   # ///////  Patch API Call /////////////
@@ -268,12 +295,13 @@ if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]
       request["postman-token"] = '426cf69c-75a9-c12e-1ff5-2b25da0f98fd'
       # request.body = "{\n\"sales_stage\" : \"14daytrial\",\n\"subdomain\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
       # request.body = "{\n\"sales_stage\" : \"14daytrial\"\n}"
-      request.body = "{\n\"sales_stage__c\":\"14daytrial\" ,\n\"subdomain__c\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
+      request.body = "{\n\"sales_stage__c\":\"14daytrial\" , \n\"pwd__c\":\"#{$fdtickets[$i]["custom_fields"]["password"]}\" , \n\"subdomain__c\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
 
       response = http.request(request)
 
 
   # end
+
 else
   puts "failure"
 end
