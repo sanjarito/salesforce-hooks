@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# salesforce-hooks
+>>>>>>> 7bd3e974f5a540a18aa02795dc8c5ac2c7537815
