@@ -249,13 +249,13 @@ puts $salesforceleademail
 while $i <= 10
 
 if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]["username"] == $salesforceleademail && $fdtickets[$i]["status"] == 9
-  puts "Rejected"
+    puts "reject update api call"
 
   # ///////  Patch API Call /////////////
   # unless $pixsalesstage == "Email_Registration"
       url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/" + $pixsalesforceuserid)
 
-      puts "patch api call"
+
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
@@ -272,6 +272,23 @@ if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]
 
       response = http.request(request)
 
+
+      url = URI("https://pixfizz.freshdesk.com/api/v2/tickets/7311")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      request = Net::HTTP::Put.new(url)
+      request["content-type"] = 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+      request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
+      request["cache-control"] = 'no-cache'
+      request["postman-token"] = 'df442983-f8ee-805a-b21d-78273eb16d35'
+      request.body = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"status\"\r\n\r\n4\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+
+      response = http.request(request)
+      puts response.read_body
+      puts "change status to resolved"
 
   # end
 
@@ -298,6 +315,23 @@ elsif $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_field
       request.body = "{\n\"sales_stage__c\":\"14daytrial\" , \n\"pwd__c\":\"#{$fdtickets[$i]["custom_fields"]["password"]}\" , \n\"subdomain__c\" : \"#{$fdtickets[$i]["custom_fields"]["subdomain"]}\"\n}"
 
       response = http.request(request)
+
+      url = URI("https://pixfizz.freshdesk.com/api/v2/tickets/7311")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Put.new(url)
+request["content-type"] = 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
+request["cache-control"] = 'no-cache'
+request["postman-token"] = 'df442983-f8ee-805a-b21d-78273eb16d35'
+request.body = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"status\"\r\n\r\n4\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+
+response = http.request(request)
+puts response.read_body
+puts "change status to resolved"
 
 
   # end
