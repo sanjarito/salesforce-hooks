@@ -273,7 +273,8 @@ if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]
       response = http.request(request)
 
 
-      url = URI("https://pixfizz.freshdesk.com/api/v2/tickets/7311")
+      url = URI("https://pixfizz.freshdesk.com/api/v2/tickets/#{$fdtickets[$i]['id']}")
+
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
@@ -287,7 +288,7 @@ if $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_fields"]
       request.body = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"status\"\r\n\r\n4\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
 
       response = http.request(request)
-      puts response.read_body
+
       puts "change status to resolved"
 
   # end
@@ -316,28 +317,30 @@ elsif $fdtickets[$i]["type"] == "Instant Signup" && $fdtickets[$i]["custom_field
 
       response = http.request(request)
 
-      url = URI("https://pixfizz.freshdesk.com/api/v2/tickets/7311")
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-request = Net::HTTP::Put.new(url)
-request["content-type"] = 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
-request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
-request["cache-control"] = 'no-cache'
-request["postman-token"] = 'df442983-f8ee-805a-b21d-78273eb16d35'
-request.body = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"status\"\r\n\r\n4\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+      url = URI("https://pixfizz.freshdesk.com/api/v2/tickets/#{$fdtickets[$i]['id']}")
 
-response = http.request(request)
-puts response.read_body
-puts "change status to resolved"
 
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      request = Net::HTTP::Put.new(url)
+      request["content-type"] = 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+      request["authorization"] = 'Basic c2FudGlhZ29fY2FzYXJAcGl4Zml6ei5jb206RGV0ZWNoMjgwNCEh'
+      request["cache-control"] = 'no-cache'
+      request["postman-token"] = 'df442983-f8ee-805a-b21d-78273eb16d35'
+      request.body = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"status\"\r\n\r\n4\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+
+      response = http.request(request)
+      puts "change status to resolved"
 
   # end
 
 else
   puts "failure"
+  puts $fdtickets[$i]["id"]
 end
   # puts $tickettype
   # puts $fdtickets[$i]["type"]
