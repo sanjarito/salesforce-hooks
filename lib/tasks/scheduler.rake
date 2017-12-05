@@ -56,7 +56,7 @@ end
 
                   # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
 
-                  url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=Aprilla1089ZYrFbpnkflrxciWQIV8dWS5M")
+                  url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=Tr@nsport3rbCuLa2KdIDau60cRNlpwQTNV")
 
                   http = Net::HTTP.new(url.host, url.port)
                   http.use_ssl = true
@@ -177,7 +177,7 @@ end
 
     # //////////// Oauth token request to SALESFORCE    ///////////////////////////////////////
 
-    url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=Aprilla1089ZYrFbpnkflrxciWQIV8dWS5M")
+    url = URI("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9WtWSKUDG.x4G.GRPQb1Yzl8EUkBFVCy5xEnh9dmrv96y8MsYxl6Cz0ZHtJvD9hUBCLTUcPM57_GUfGj.&client_secret=4087144410510429660&username=stephen_thorpe%40sjtsystems.com&password=Tr@nsport3rbCuLa2KdIDau60cRNlpwQTNV")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
