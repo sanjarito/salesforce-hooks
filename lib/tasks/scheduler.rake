@@ -113,8 +113,8 @@ end
                         # puts conditional_length
 
                     # ///////  Patch API Call /////////////
-                  elsif $pixsalesstage == "Storefront_Registration"
-                    if conditional_length < 2 && (sfuser_id != nil && sfuser_id != 0)
+                  if $pixsalesstage == "Storefront_Registration"
+                  elsif conditional_length < 2 && (sfuser_id != nil && sfuser_id != 0)
                         url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/#{sfuser_id}")
                         puts sfuser_id
                         puts conditional_length
