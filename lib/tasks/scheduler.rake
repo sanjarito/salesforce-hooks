@@ -82,7 +82,7 @@ end
 
                     # ///////  Post API Call /////////////
 
-                      if $pixsalesstage == "Email_Registration"
+                      # if $pixsalesstage == "Email_Registration"
                       url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead")
 
                       http = Net::HTTP.new(url.host, url.port)
@@ -116,6 +116,8 @@ end
                   elsif $pixsalesstage == "Storefront_Registration"
                     if conditional_length < 2 && (sfuser_id != nil && sfuser_id != 0)
                         url = URI("https://pixfizz.my.salesforce.com/services/data/v20.0/sobjects/Lead/#{sfuser_id}")
+                        puts sfuser_id
+                        puts conditional_length
 
                         puts "patch api call"
 
@@ -136,7 +138,7 @@ end
                       end
                     end
 
-                      end
+                      # end
 
                     # /////// END PATCH /////////////
 
