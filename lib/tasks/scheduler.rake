@@ -19,7 +19,7 @@ end
 
 
       $i = 0
-      uri = URI("https://corporate.pixfizz.com/users.json?page=3")
+      uri = URI("https://corporate.pixfizz.com/users.json?page=4")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
