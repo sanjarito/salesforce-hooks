@@ -18,7 +18,7 @@ def start
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     request = Net::HTTP::Get.new(uri.request_uri)
-    request.basic_auth("santiago_casar@pixfizz.com", "Habitat28")
+    request.basic_auth("santiago_casar@pixfizz.com", "Password")
     response = http.request(request)
           unless response.nil?
             varusers = response.read_body
@@ -45,7 +45,7 @@ def start
                       http.use_ssl = true
                       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
                       request = Net::HTTP::Get.new(uri.request_uri)
-                      request.basic_auth("santiago_casar@pixfizz.com", "Habitat28")
+                      request.basic_auth("santiago_casar@pixfizz.com", "Password")
                       response = http.request(request)
                             unless response.nil?
                               varuser = response.read_body
